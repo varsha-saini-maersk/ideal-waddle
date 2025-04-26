@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { ref } from 'vue';
-import { usePokemonStore } from '../stores/pokemonStore';
+import { ref } from 'vue'
+import { usePokemonStore } from '../stores/pokemonStore'
 
-const pokemonStore = usePokemonStore();
-const options = [10, 20, 50];
+const pokemonStore = usePokemonStore()
+const options = [10, 20, 50]
 
 const handleChange = (event: Event) => {
-  //const selectedValue = parseInt((event.target as HTMLSelectElement).value, 10);
-  pokemonStore.updateRecordsPerPage(event.target?.value);
-};
+  pokemonStore.updateRecordsPerPage(event.target?.value)
+}
 </script>
 
 <template>

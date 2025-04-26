@@ -17,6 +17,10 @@ const props = defineProps({
     type: Number,
     required: false,
   },
+  abilities: {
+    type: Array,
+    required: false,
+  },
 })
 </script>
 <template>
@@ -24,7 +28,11 @@ const props = defineProps({
     <img :src="imageUrl" alt="Icon" class="card-img" />
     <div class="card-details">
       <h3>{{ `${name} - ${height}cm / ${weight} pounds` }}</h3>
-      <p>List of abilities</p>
+      <ul>
+        <li v-for="(ability, index) in abilities" :key="index">
+          {{ ability.ability.name }}
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -41,11 +49,17 @@ const props = defineProps({
   width: 100%;
   object-fit: cover;
 }
+h3 {
+  font-size: 1.2rem;
+}
 
 .card-details {
   padding: 10px;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 560px) {
+  .card {
+    width: 100%;
+  }
 }
 </style>

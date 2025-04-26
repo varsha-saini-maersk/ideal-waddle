@@ -4,7 +4,7 @@ exports[`CardItem.vue > matches snapshot 1`] = `
 "<div data-v-5877d0fb="" class="card"><img data-v-5877d0fb="" src="https://example.com/image.jpg" alt="Icon" class="card-img">
   <div data-v-5877d0fb="" class="card-details">
     <h3 data-v-5877d0fb="">Snapshot Test - 170cm / 65 pounds</h3>
-    <p data-v-5877d0fb="">List of abilities</p>
+    <ul data-v-5877d0fb=""></ul>
   </div>
 </div>"
 `;

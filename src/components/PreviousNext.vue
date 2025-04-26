@@ -17,20 +17,16 @@ const handleNextPage = () => {
 
 <template>
   <div class="button-container">
-    <button
-      class="previous-button"
-      @click="handlePreviousPage"
-      :disabled="!pokemonStore.prevPage">Previous</button>
-      <button
-      class="next-button"
-      @click="handleNextPage"
-      :disabled="!pokemonStore.nextPage">Next</button>
+    <button class="previous-button" @click="handlePreviousPage" :disabled="!pokemonStore.prevPage">
+      Previous
+    </button>
+    <button class="next-button" @click="handleNextPage" :disabled="!pokemonStore.nextPage">
+      Next
+    </button>
   </div>
 </template>
 
 <style scoped>
-
-
 .button-container button {
   background-color: #007bff;
   color: white;

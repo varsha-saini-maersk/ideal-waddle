@@ -3,6 +3,18 @@ import { describe, it, expect, vi } from 'vitest';
 import PokemonsWorld from '@/components/PokemonsWorld.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { usePokemonStore } from '@/stores/pokemonStore';
+  import { useRoute,useRouter } from 'vue-router'
+
+// Mock useRoute
+vi.mock('vue-router', () => ({
+  useRoute: () => ({
+    query: {
+      searchStr: 'shoes',
+      sortedBy: 'price_asc',
+    }
+  }),
+  useRouter: () => ({ push: vi.fn() }) // if you also use useRouter
+}))
 
 describe('PokemonsWorld.vue', () => {
   it('renders correctly when data is loaded', async () => {
