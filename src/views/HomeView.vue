@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import PokemonsWorld from '@/components/PokemonsWorld.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <PokemonsWorld />
   </main>
 </template>
