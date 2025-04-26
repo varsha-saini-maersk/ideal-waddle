@@ -2,8 +2,6 @@
 import { onMounted } from 'vue'
 import CardItem from './CardItem.vue'
 import { usePokemonStore } from '../stores/pokemonStore'
-import RecordsPerPageSelector from './RecordsPerPageSelector.vue'
-import PreviousNext from './PreviousNext.vue'
 
 const pokemonStore = usePokemonStore()
 
@@ -13,13 +11,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="greetings">
+  <div class="main-container">
     <h1 class="green">Pokémons World</h1>
-    <RecordsPerPageSelector v-if="!pokemonStore.loading"/>
-    <PreviousNext v-if="!pokemonStore.loading"/>
-    <div class="loading" v-if="pokemonStore.loading">
-      <img src="../assets/loading.gif" alt="Loading..." />
-      </div>
     <div class="card-container" v-if="!pokemonStore.loading">
       <CardItem
         v-for="(pokemon, index) in pokemonStore.data || []"
@@ -31,29 +24,17 @@ onMounted(async () => {
         :abilities="pokemon.abilities"
       />
     </div>
-    <PreviousNext v-if="!pokemonStore.loading"/>
   </div>
 </template>
 
 <style scoped>
-.card-container {
+.main-container {
+}
+card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
-}
-
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 30%;
-  height: 70vh;
-}
-
-.loading img {
-  width: 200px;
 }
 
 @media (min-width: 1024px) {

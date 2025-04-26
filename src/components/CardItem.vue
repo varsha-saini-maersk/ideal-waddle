@@ -31,15 +31,14 @@ const props = defineProps({
 
 <style scoped>
 .card {
-  border: 1px solid #ccc;
   border-radius: 8px;
   overflow: hidden;
   width: 250px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 10px;
 }
 .card-img {
   width: 100%;
-  height: 150px;
   object-fit: cover;
 }
 
