@@ -3,7 +3,6 @@ import { describe, it, expect, vi } from 'vitest';
 import PokemonsWorld from '@/components/PokemonsWorld.vue';
 import { createTestingPinia } from '@pinia/testing';
 import { usePokemonStore } from '@/stores/pokemonStore';
-  import { useRoute,useRouter } from 'vue-router'
 
 // Mock useRoute
 vi.mock('vue-router', () => ({
@@ -27,7 +26,10 @@ describe('PokemonsWorld.vue', () => {
         name: 'Pikachu',
         height: 4,
         weight: 60,
-        abilities: ['Static', 'Lightning Rod'],
+        abilities: [
+          { ability: { name: 'static' } },
+          { ability: { name: 'lightning-rod' } },
+        ],
         sprites: {
           other: {
             'official-artwork': {
@@ -45,7 +47,7 @@ describe('PokemonsWorld.vue', () => {
       },
     });
 
-    expect(wrapper.find('.green').text()).toBe('Pokémons World');
+    expect(wrapper.find('.header').text()).toBe('Pokémons World');
     expect(pokemonStore.getPokemonResults).toHaveBeenCalled();
   });
 

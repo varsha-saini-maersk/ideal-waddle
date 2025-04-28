@@ -28,6 +28,32 @@ const handleChange = (event: Event) => {
 }
 
 label {
-  font-weight: bold;
+  font-size: 18px;
+  font-weight: 600;
+  color: #4a4848;
+  margin-right: 10px;
+}
+select {
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  border: 1px solid cadetblue;
+  background-color: #f0f0f0;
+  color: #333;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .records-selector {
+    gap: unset;
+    margin: 0;
+  }
+  label {
+    font-size: 15px;
+  }
+  select,
+  input {
+    font-size: 15px;
+  }
 }
 </style>

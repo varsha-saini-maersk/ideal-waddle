@@ -3,8 +3,15 @@
 exports[`CardItem.vue > matches snapshot 1`] = `
 "<div data-v-5877d0fb="" class="card"><img data-v-5877d0fb="" src="https://example.com/image.jpg" alt="Icon" class="card-img">
   <div data-v-5877d0fb="" class="card-details">
-    <h3 data-v-5877d0fb="">Snapshot Test - 170cm / 65 pounds</h3>
-    <ul data-v-5877d0fb=""></ul>
+    <div data-v-5877d0fb="" class="card-header">
+      <h3 data-v-5877d0fb="">Name :</h3>
+      <h3 data-v-5877d0fb="">Snapshot Test</h3>
+    </div>
+    <div data-v-5877d0fb="" class="card-header spacing">
+      <h4 data-v-5877d0fb="">Height : 170cm</h4>
+      <h4 data-v-5877d0fb="">Weight : 65kg</h4>
+    </div>
+    <h4 data-v-5877d0fb="">Abilities :</h4>
   </div>
 </div>"
 `;

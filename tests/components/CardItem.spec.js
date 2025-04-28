@@ -14,7 +14,7 @@ describe('CardItem.vue', () => {
     });
 
     expect(wrapper.find('.card-img').attributes('src')).toBe('test url');
-    expect(wrapper.find('h3').text()).toBe('Test Name - 180cm / 75 pounds');
+    expect(wrapper.find('.card-header').text()).toBe('Name : Test Name');
   });
 
 

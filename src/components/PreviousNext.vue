@@ -27,6 +27,12 @@ const handleNextPage = () => {
 </template>
 
 <style scoped>
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 0;
+}
 .button-container button {
   background-color: #007bff;
   color: white;

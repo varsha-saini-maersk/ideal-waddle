@@ -24,30 +24,45 @@ function openSelectedPokemon(pokemon: any) {
 
 <template>
   <div class="greetings">
-    <h1 class="green">Pokémons World</h1>
-    <RecordsPerPageSelector v-if="!pokemonStore.loading" />
-    <PreviousNext v-if="!pokemonStore.loading" />
+    <h1 class="header">Pokémons World</h1>
     <div class="loading" v-if="pokemonStore.loading">
       <img src="../assets/loading.gif" alt="Loading..." />
     </div>
-    <FilterOptions v-if="!pokemonStore.loading" />
-    <div class="card-container" v-if="!pokemonStore.loading">
-      <CardItem
-        v-for="(pokemon, index) in pokemonStore.filteredData || []"
-        :key="index"
-        :image-url="pokemon.sprites.other['official-artwork']['front_default']"
-        :name="pokemon.name"
-        :height="pokemon.height"
-        :weight="pokemon.weight"
-        :abilities="pokemon.abilities"
-        @click="openSelectedPokemon(pokemon)"
-      />
-    </div>
-    <PreviousNext v-if="!pokemonStore.loading" />
+
+    <template v-if="!pokemonStore.loading">
+      <div class="filter-section"><FilterOptions /> <RecordsPerPageSelector /></div>
+      <template v-if="pokemonStore.filteredData.length === 0">
+        <h2>No Pokémon found</h2>
+      </template>
+      <template v-else-if="pokemonStore.filteredData.length > 0">
+        <PreviousNext />
+        <div class="card-container">
+          <CardItem
+            v-for="(pokemon, index) in pokemonStore.filteredData || []"
+            :key="index"
+            :image-url="pokemon.sprites.other['official-artwork']['front_default']"
+            :name="pokemon.name"
+            :height="pokemon.height"
+            :weight="pokemon.weight"
+            :abilities="pokemon.abilities"
+            @click="openSelectedPokemon(pokemon)"
+          />
+        </div>
+        <PreviousNext />
+      </template>
+    </template>
   </div>
 </template>
 
 <style scoped>
+.header {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #eedfdf;
+  text-align: center;
+  margin-top: 20px;
+  background-color: #518aa7;
+}
 .card-container {
   display: flex;
   flex-direction: row;
@@ -59,14 +74,24 @@ function openSelectedPokemon(pokemon: any) {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 30%;
   height: 70vh;
 }
 
 .loading img {
   width: 200px;
 }
+.filter-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+  background: antiquewhite;
+}
 
-@media (min-width: 1024px) {
+@media (max-width: 768px) {
+  .filter-section {
+    flex-direction: column;
+    align-items: start;
+  }
 }
 </style>
